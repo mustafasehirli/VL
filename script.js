@@ -1,9 +1,9 @@
 const animatedText = document.querySelector(".animated-text");
 const textArray = [
-  { text: "Sat??lar? Art?r?n", color: "#1a73e8" }, // mavi
-  { text: "?n Plana ??k?n", color: "#ea4335" }, // k?rm?z?
-  { text: "Bulunabilir Olun", color: "#1fa05e" }, // ye?il
-  { text: "G?r?n?n", color: "#f9a20f" }, // turuncu
+  { text: "Satışları Artırın", color: "#1a73e8" }, // mavi
+  { text: "Ön Plana Çıkın", color: "#ea4335" }, // kırmızı
+  { text: "Bulunabilir Olun", color: "#1fa05e" }, // yeşil
+  { text: "Görünün", color: "#f9a20f" }, // turuncu
 ];
 const intervalMs = 2600;
 let textIndex = 0;
