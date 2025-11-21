@@ -308,12 +308,26 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   background: linear-gradient(135deg, var(--violet-soft), var(--blue-soft));
   border: 1px solid var(--border);
   border-radius: 20px;
-  height: 360px;
+  min-height: 360px;
   box-shadow: var(--shadow-lg);
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mockup-large {
+  background: linear-gradient(135deg, var(--amber-soft), var(--rose-soft));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  min-height: 400px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -322,8 +336,11 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 .mockup-large .mockup-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
   position: relative;
   z-index: 1;
 }
@@ -423,30 +440,6 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   place-items: center;
   font-weight: 900;
   font-size: 12px;
-}
-
-.mockup-large {
-  background: linear-gradient(135deg, var(--amber-soft), var(--rose-soft));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  height: 400px;
-  box-shadow: var(--shadow-lg);
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-}
-
-.mockup-large::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  left: -30%;
-  width: 160%;
-  height: 160%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 60%);
 }
 
 .dept-grid {
@@ -574,6 +567,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #core-value .grid-2x2 { gap: 20px; }
   #product-tour .tool-grid { gap: 16px; }
   #ai-intel .ai-cards { gap: 20px; }
+  #ai-intel .mockup-box { min-height: 300px; padding: 16px; }
+  #client-os .mockup-large { min-height: 320px; padding: 16px; }
   #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   #knowledge-base .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -600,9 +595,9 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #product-tour .tool-card { padding: 20px 16px; }
   #product-tour .tool-icon { width: 48px; height: 48px; font-size: 22px; }
   #product-tour .tool-grid { gap: 12px; }
-  #ai-intel .mockup-box { height: 280px; }
+  #ai-intel .mockup-box { min-height: 250px; padding: 16px; }
   #ai-intel .ai-cards { gap: 16px; }
-  #client-os .mockup-large { height: 320px; }
+  #client-os .mockup-large { min-height: 280px; padding: 16px; }
   #client-os .two-col { gap: 32px; }
   #agency-os .dept-grid { grid-template-columns: 1fr; gap: 20px; }
   #agency-os .dept-card { padding: 36px 24px; }
@@ -849,13 +844,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.08));
   border: 2px solid rgba(139, 92, 246, 0.2);
   border-radius: 24px;
-  height: 420px;
-  position: relative;
+  min-height: 420px;
   box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
-}
-
-#ai-intel .mockup-box::before {
-  animation: pulse 3s ease-in-out infinite;
 }
 
 #ai-intel .ai-cards {
@@ -948,12 +938,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.08));
   border: 2px solid rgba(245, 158, 11, 0.2);
   border-radius: 24px;
-  height: 480px;
+  min-height: 480px;
   box-shadow: 0 20px 60px rgba(245, 158, 11, 0.15);
-}
-
-#client-os .mockup-large::before {
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 60%);
 }
 
 /* Section 6 - Agency OS - Department Grid */
