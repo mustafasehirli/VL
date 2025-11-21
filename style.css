@@ -544,7 +544,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #product-tour .split-header p { text-align: left; }
   #ai-intel .ai-row { grid-template-columns: 1fr; gap: 40px; }
   #client-os .two-col { grid-template-columns: 1fr; gap: 40px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+  #agency-os .dept-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
   #knowledge-base .kb-layout { grid-template-columns: 1fr; gap: 40px; }
 }
 
@@ -564,7 +564,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #core-value .grid-2x2 { gap: 20px; }
   #product-tour .tool-grid { gap: 16px; }
   #ai-intel .ai-cards { gap: 20px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   #knowledge-base .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -594,9 +594,9 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #ai-intel .ai-cards { gap: 16px; }
   #client-os .mockup-large { height: 320px; }
   #client-os .two-col { gap: 32px; }
-  #agency-os .dept-grid { grid-template-columns: 1fr; gap: 16px; }
-  #agency-os .dept-card { padding: 32px 20px; }
-  #agency-os .dept-icon { font-size: 42px; }
+  #agency-os .dept-grid { grid-template-columns: 1fr; gap: 20px; }
+  #agency-os .dept-card { padding: 36px 24px; }
+  #agency-os .dept-icon { width: 72px; height: 72px; font-size: 36px; }
   #knowledge-base .kb-grid { grid-template-columns: 1fr; gap: 16px; }
   #knowledge-base .kb-card { padding: 24px 16px; }
   #knowledge-base .kb-layout { gap: 32px; }
@@ -969,69 +969,166 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 
 #agency-os .dept-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 28px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 #agency-os .dept-card {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-  border: 2px solid rgba(59, 130, 246, 0.15);
-  border-radius: 20px;
-  padding: 36px 24px;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 40px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
 }
 
 #agency-os .dept-card::before {
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#agency-os .dept-card::after {
+  content: '';
+  position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+  border-radius: 24px;
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 #agency-os .dept-card:hover::before {
+  transform: scaleX(1);
+}
+
+#agency-os .dept-card:hover::after {
   opacity: 1;
 }
 
 #agency-os .dept-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+  transform: translateY(-12px);
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.15);
   border-color: var(--blue);
 }
 
 #agency-os .dept-icon {
-  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
   line-height: 1;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  background: linear-gradient(135deg, #F0F4FF 0%, #E0F2FE 100%);
+  border-radius: 20px;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
 }
 
 #agency-os .dept-card:hover .dept-icon {
-  transform: scale(1.15) rotateZ(5deg);
+  transform: scale(1.1) rotateY(10deg);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.2);
 }
 
 #agency-os .dept-card h4 {
   margin: 0;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--text);
-  letter-spacing: -0.2px;
-  transition: color 0.3s ease;
+  letter-spacing: -0.3px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 #agency-os .dept-card:hover h4 {
   color: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* Individual card color themes */
+#agency-os .dept-card:nth-child(1) .dept-icon {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+}
+
+#agency-os .dept-card:nth-child(1):hover::before {
+  background: linear-gradient(90deg, #F59E0B, #F97316);
+}
+
+#agency-os .dept-card:nth-child(2) .dept-icon {
+  background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+}
+
+#agency-os .dept-card:nth-child(2):hover::before {
+  background: linear-gradient(90deg, #3B82F6, #2563EB);
+}
+
+#agency-os .dept-card:nth-child(3) .dept-icon {
+  background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%);
+}
+
+#agency-os .dept-card:nth-child(3):hover::before {
+  background: linear-gradient(90deg, #6366F1, #4F46E5);
+}
+
+#agency-os .dept-card:nth-child(4) .dept-icon {
+  background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
+}
+
+#agency-os .dept-card:nth-child(4):hover::before {
+  background: linear-gradient(90deg, #EC4899, #DB2777);
+}
+
+#agency-os .dept-card:nth-child(5) .dept-icon {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+}
+
+#agency-os .dept-card:nth-child(5):hover::before {
+  background: linear-gradient(90deg, #10B981, #059669);
+}
+
+#agency-os .dept-card:nth-child(6) .dept-icon {
+  background: linear-gradient(135deg, #E9D5FF 0%, #D8B4FE 100%);
+}
+
+#agency-os .dept-card:nth-child(6):hover::before {
+  background: linear-gradient(90deg, #8B5CF6, #7C3AED);
+}
+
+#agency-os .dept-card:nth-child(7) .dept-icon {
+  background: linear-gradient(135deg, #CFFAFE 0%, #A5F3FC 100%);
+}
+
+#agency-os .dept-card:nth-child(7):hover::before {
+  background: linear-gradient(90deg, #06B6D4, #0891B2);
+}
+
+#agency-os .dept-card:nth-child(8) .dept-icon {
+  background: linear-gradient(135deg, #FED7AA 0%, #FDBA74 100%);
+}
+
+#agency-os .dept-card:nth-child(8):hover::before {
+  background: linear-gradient(90deg, #F97316, #EA580C);
 }
 
 /* Section 7 - Knowledge Base - Asymmetric Layout */
