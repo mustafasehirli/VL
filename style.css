@@ -55,14 +55,23 @@ header {
   gap: 18px;
 }
 
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: 0.2px; color: var(--text); }
+.brand { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  font-weight: 800; 
+  font-size: 32px; 
+  letter-spacing: 0.2px; 
+  color: var(--text); }
 
 .brand-mark {
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none'%3E%3Cpath d='M10 30L22 18L28 24L38 14' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='30 12 38 12 38 20' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center center/20px 20px no-repeat,
+    linear-gradient(135deg, #7a5af8 0%, #19b9e6 100%);
+  box-shadow: 0 8px 18px rgba(122, 90, 248, 0.25), 0 8px 18px rgba(25, 185, 230, 0.25);
 }
 
 nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-weight: 700; font-size: 14px; }
@@ -541,14 +550,17 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   .ai-row { grid-template-columns: 1fr; }
 
   /* Responsive adjustments for new design */
-  #core-value .card:nth-child(1) { grid-column: span 1; }
-  #core-value .grid-2x2 { grid-template-columns: 1fr; }
+  #core-value .card:nth-child(1) { grid-column: span 1 !important; }
+  #core-value .grid-2x2 { grid-template-columns: 1fr !important; }
   #product-tour .split-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   #product-tour .split-header p { text-align: left; }
-  #ai-intel .ai-row { grid-template-columns: 1fr; gap: 40px; }
-  #client-os .two-col { grid-template-columns: 1fr; gap: 40px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
-  #knowledge-base .kb-layout { grid-template-columns: 1fr; gap: 40px; }
+  #product-tour .tool-grid { grid-template-columns: 1fr !important; }
+  #ai-intel .ai-row { grid-template-columns: 1fr !important; gap: 40px; }
+  #ai-intel .ai-cards { grid-template-columns: 1fr !important; }
+  #client-os .two-col { grid-template-columns: 1fr !important; gap: 40px; }
+  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  #knowledge-base .kb-layout { grid-template-columns: 1fr !important; gap: 40px; }
+  #knowledge-base .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -564,24 +576,27 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #core-value, #product-tour, #ai-intel, #client-os, #agency-os, #knowledge-base {
     padding: 70px 16px 80px;
   }
-  #core-value .grid-2x2 { gap: 20px; grid-template-columns: 1fr; }
-  #core-value .card:nth-child(1) { grid-column: span 1; }
-  #product-tour .tool-grid { gap: 16px; }
-  #ai-intel .ai-cards { gap: 20px; }
+  #core-value .grid-2x2 { gap: 20px; grid-template-columns: 1fr !important; }
+  #core-value .card:nth-child(1) { grid-column: span 1 !important; }
+  #product-tour .tool-grid { gap: 16px; grid-template-columns: 1fr !important; }
+  #ai-intel .ai-row { grid-template-columns: 1fr !important; gap: 40px; }
+  #ai-intel .ai-cards { gap: 20px; grid-template-columns: 1fr !important; }
   #ai-intel .mockup-box { min-height: 300px; padding: 16px; }
+  #client-os .two-col { grid-template-columns: 1fr !important; gap: 40px; }
   #client-os .mockup-large { min-height: 320px; padding: 16px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
+  #knowledge-base .kb-layout { grid-template-columns: 1fr !important; gap: 40px; }
   #knowledge-base .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 540px) {
   .hero { gap: 14px; padding: 22px 12px 28px; }
   .hero-text { max-width: 100%; }
-  .hero-text h1 { font-size: clamp(26px, 9vw, 36px); }
+  .hero-text h1 { font-size: clamp(64px, 9vw, 36px); }
   .hero-text p { font-size: 15px; }
   .cta-row .btn { width: 100%; justify-content: center; padding: 11px 14px; }
   .section { padding: 44px 12px 52px; }
-  .section h2 { font-size: 25px; }
+  .section h2 { font-size: 32px; }
   .pricing-card, .dept-card, .kb-card, .ai-card, .card { padding: 18px; }
   .split-header p { text-align: left; }
   .page { padding: 0 12px 70px; }
@@ -591,22 +606,23 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
     padding: 56px 12px 64px;
   }
   #core-value .card { padding: 24px 20px; }
-  #core-value .card:nth-child(1) { grid-column: span 1; }
+  #core-value .card:nth-child(1) { grid-column: span 1 !important; }
   #core-value .card .icon-circle { width: 56px; height: 56px; font-size: 20px; }
-  #core-value .grid-2x2 { gap: 16px; grid-template-columns: 1fr; }
+  #core-value .grid-2x2 { gap: 16px; grid-template-columns: 1fr !important; }
   #product-tour .tool-card { padding: 20px 16px; }
   #product-tour .tool-icon { width: 48px; height: 48px; font-size: 22px; }
-  #product-tour .tool-grid { gap: 12px; }
+  #product-tour .tool-grid { gap: 12px; grid-template-columns: 1fr !important; }
+  #ai-intel .ai-row { grid-template-columns: 1fr !important; gap: 32px; }
   #ai-intel .mockup-box { min-height: 250px; padding: 16px; }
-  #ai-intel .ai-cards { gap: 16px; }
+  #ai-intel .ai-cards { gap: 16px; grid-template-columns: 1fr !important; }
   #client-os .mockup-large { min-height: 280px; padding: 16px; }
-  #client-os .two-col { gap: 32px; }
-  #agency-os .dept-grid { grid-template-columns: 1fr; gap: 20px; }
+  #client-os .two-col { gap: 32px; grid-template-columns: 1fr !important; }
+  #agency-os .dept-grid { grid-template-columns: 1fr !important; gap: 20px; }
   #agency-os .dept-card { padding: 36px 24px; }
   #agency-os .dept-icon { width: 72px; height: 72px; font-size: 36px; }
-  #knowledge-base .kb-grid { grid-template-columns: 1fr; gap: 16px; }
+  #knowledge-base .kb-layout { gap: 32px; grid-template-columns: 1fr !important; }
+  #knowledge-base .kb-grid { grid-template-columns: 1fr !important; gap: 16px; }
   #knowledge-base .kb-card { padding: 24px 16px; }
-  #knowledge-base .kb-layout { gap: 32px; }
 }
 
 /* Section specific styles - Complete Redesign */
@@ -618,7 +634,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 }
 
 #core-value h2 {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(48px, 5vw, 48px);
   background: linear-gradient(135deg, var(--accent), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -638,6 +654,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   gap: 32px;
   max-width: 1100px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #core-value .card {
@@ -689,6 +707,12 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   grid-column: span 2;
 }
 
+@media (max-width: 900px) {
+  #core-value .card:nth-child(1) {
+    grid-column: span 1 !important;
+  }
+}
+
 #core-value .card:nth-child(1) .icon-circle {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: white;
@@ -729,12 +753,15 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   max-width: 1100px;
   margin: 0 auto 56px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
 }
 
 #product-tour .split-header h2 {
-  font-size: clamp(32px, 5vw, 42px);
+  font-size: clamp(48px, 5vw, 42px);
   background: linear-gradient(135deg, var(--emerald), var(--cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -742,8 +769,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 }
 
 #product-tour .split-header p {
-  font-size: 17px;
-  color: var(--text-light);
+  display: none;
 }
 
 #product-tour .tool-grid {
@@ -798,7 +824,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 /* Section 4 - AI Intel - Split Layout with Visual */
 #ai-intel {
   background: linear-gradient(135deg, #F0F4FF 0%, #F5F3FF 100%);
-  padding: 100px 0 110px;
+  padding: 100px 16px 110px;
   position: relative;
   overflow: hidden;
 }
@@ -826,10 +852,12 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 60px;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #ai-intel .ai-row h2 {
-  font-size: clamp(32px, 5vw, 44px);
+  font-size: clamp(45px, 5vw, 44px);
   background: linear-gradient(135deg, var(--violet), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -858,6 +886,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #ai-intel .ai-card {
@@ -866,6 +896,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   border-radius: 20px;
   padding: 32px 28px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #ai-intel .ai-card::before {
@@ -914,7 +946,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 }
 
 #client-os h2 {
-  font-size: clamp(32px, 5vw, 44px);
+  font-size: clamp(45px, 5vw, 44px);
   background: linear-gradient(135deg, var(--amber), var(--rose));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -953,7 +985,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 }
 
 #agency-os h2 {
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(45px, 5vw, 48px);
   background: linear-gradient(135deg, var(--blue), var(--cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1147,7 +1179,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 }
 
 #knowledge-base h2 {
-  font-size: clamp(32px, 5vw, 44px);
+  font-size: clamp(45px, 5vw, 44px);
   background: linear-gradient(135deg, var(--cyan), var(--emerald));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1213,7 +1245,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 
 #knowledge-base .kb-card div {
   margin-top: 14px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
 }
