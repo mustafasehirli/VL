@@ -318,6 +318,16 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   overflow: hidden;
 }
 
+.mockup-box .mockup-image,
+.mockup-large .mockup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
+}
+
 .mockup-box::before {
   content: '';
   position: absolute;
