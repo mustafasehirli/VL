@@ -564,7 +564,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #core-value, #product-tour, #ai-intel, #client-os, #agency-os, #knowledge-base {
     padding: 70px 16px 80px;
   }
-  #core-value .grid-2x2 { gap: 20px; }
+  #core-value .grid-2x2 { gap: 20px; grid-template-columns: 1fr; }
+  #core-value .card:nth-child(1) { grid-column: span 1; }
   #product-tour .tool-grid { gap: 16px; }
   #ai-intel .ai-cards { gap: 20px; }
   #ai-intel .mockup-box { min-height: 300px; padding: 16px; }
@@ -590,8 +591,9 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
     padding: 56px 12px 64px;
   }
   #core-value .card { padding: 24px 20px; }
+  #core-value .card:nth-child(1) { grid-column: span 1; }
   #core-value .card .icon-circle { width: 56px; height: 56px; font-size: 20px; }
-  #core-value .grid-2x2 { gap: 16px; }
+  #core-value .grid-2x2 { gap: 16px; grid-template-columns: 1fr; }
   #product-tour .tool-card { padding: 20px 16px; }
   #product-tour .tool-icon { width: 48px; height: 48px; font-size: 22px; }
   #product-tour .tool-grid { gap: 12px; }
@@ -612,7 +614,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 /* Section 2 - Ana Fayda - Feature Grid with Icons */
 #core-value {
   background: linear-gradient(180deg, #FAFBFD 0%, #F0F4FF 50%, #FAFBFD 100%);
-  padding: 100px 0 110px;
+  padding: 100px 16px 110px;
 }
 
 #core-value h2 {
@@ -645,7 +647,9 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   border-radius: 24px;
   padding: 40px 32px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #core-value .card::before {
