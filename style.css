@@ -544,7 +544,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #product-tour .split-header p { text-align: left; }
   #ai-intel .ai-row { grid-template-columns: 1fr; gap: 40px; }
   #client-os .two-col { grid-template-columns: 1fr; gap: 40px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  #agency-os .dept-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
   #knowledge-base .kb-layout { grid-template-columns: 1fr; gap: 40px; }
 }
 
@@ -564,7 +564,7 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #core-value .grid-2x2 { gap: 20px; }
   #product-tour .tool-grid { gap: 16px; }
   #ai-intel .ai-cards { gap: 20px; }
-  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); }
+  #agency-os .dept-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   #knowledge-base .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -595,7 +595,8 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   #client-os .mockup-large { height: 320px; }
   #client-os .two-col { gap: 32px; }
   #agency-os .dept-grid { grid-template-columns: 1fr; gap: 16px; }
-  #agency-os .dept-card { padding: 28px 20px; }
+  #agency-os .dept-card { padding: 32px 20px; }
+  #agency-os .dept-icon { font-size: 42px; }
   #knowledge-base .kb-grid { grid-template-columns: 1fr; gap: 16px; }
   #knowledge-base .kb-card { padding: 24px 16px; }
   #knowledge-base .kb-layout { gap: 32px; }
@@ -968,45 +969,69 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 
 #agency-os .dept-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 #agency-os .dept-card {
-  background: white;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
   border: 2px solid rgba(59, 130, 246, 0.15);
   border-radius: 20px;
-  padding: 40px 24px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
 }
 
 #agency-os .dept-card::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 #agency-os .dept-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
 }
 
 #agency-os .dept-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(59, 130, 246, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
   border-color: var(--blue);
+}
+
+#agency-os .dept-icon {
+  font-size: 48px;
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+#agency-os .dept-card:hover .dept-icon {
+  transform: scale(1.15) rotateZ(5deg);
+}
+
+#agency-os .dept-card h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.2px;
+  transition: color 0.3s ease;
+}
+
+#agency-os .dept-card:hover h4 {
+  color: var(--blue);
 }
 
 /* Section 7 - Knowledge Base - Asymmetric Layout */
