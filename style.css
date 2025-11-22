@@ -135,15 +135,18 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  min-height: calc(clamp(64px, 7vw, 92px) * 2.3);
 }
 
 .animated-text {
   color: var(--accent);
   display: block;
   position: relative;
-  min-height: 1.1em;
+  height: calc(clamp(64px, 7vw, 92px) * 1.1);
   width: 100%;
   text-align: center;
+  white-space: nowrap;
+  overflow: visible;
 }
 
 .animated-text.text-cycle-active {
@@ -619,7 +622,14 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   header { padding: 12px 16px 16px; }
   .page { padding: 0 16px 70px; }
   .hero { padding: 100px 16px; }
-  .hero-text h1 { font-size: clamp(30px, 8vw, 44px); margin: 0 0 16px 0; }
+  .hero-text h1 {
+    font-size: clamp(30px, 8vw, 44px);
+    margin: 0 0 16px 0;
+    min-height: calc(clamp(30px, 8vw, 44px) * 2.3);
+  }
+  .animated-text {
+    height: calc(clamp(30px, 8vw, 44px) * 1.1);
+  }
   .hero-text p { margin: 0 auto 20px auto; }
   .section { padding: 55px 16px 65px; }
   .section h2 { font-size: 27px; margin: 0 0 16px 0; }
@@ -645,7 +655,14 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
 @media (max-width: 540px) {
   .hero { padding: 80px 12px; }
   .hero-text { max-width: 100%; }
-  .hero-text h1 { font-size: clamp(26px, 9vw, 36px); margin: 0 0 16px 0; }
+  .hero-text h1 {
+    font-size: clamp(26px, 9vw, 36px);
+    margin: 0 0 16px 0;
+    min-height: calc(clamp(26px, 9vw, 36px) * 2.3);
+  }
+  .animated-text {
+    height: calc(clamp(26px, 9vw, 36px) * 1.1);
+  }
   .hero-text p { font-size: 15px; margin: 0 auto 20px auto; }
   .cta-row .btn { width: 100%; justify-content: center; padding: 11px 14px; }
   .section { padding: 44px 12px 52px; }
