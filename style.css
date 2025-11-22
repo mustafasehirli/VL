@@ -131,12 +131,19 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   letter-spacing: -0.45px;
   margin: 0 0 20px 0;
   line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .animated-text {
   color: var(--accent);
-  display: inline-block;
+  display: block;
   position: relative;
+  min-height: 1.1em;
+  width: 100%;
+  text-align: center;
 }
 
 .animated-text.text-cycle-active {
