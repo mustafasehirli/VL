@@ -142,10 +142,9 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   color: var(--accent);
   display: block;
   position: relative;
-  height: calc(clamp(64px, 7vw, 92px) * 1.1);
+  min-height: calc(clamp(64px, 7vw, 92px) * 1.1);
   width: 100%;
   text-align: center;
-  white-space: nowrap;
   overflow: visible;
 }
 
@@ -625,10 +624,10 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   .hero-text h1 {
     font-size: clamp(30px, 8vw, 44px);
     margin: 0 0 16px 0;
-    min-height: calc(clamp(30px, 8vw, 44px) * 2.3);
+    min-height: calc(clamp(30px, 8vw, 44px) * 2.5);
   }
   .animated-text {
-    height: calc(clamp(30px, 8vw, 44px) * 1.1);
+    min-height: calc(clamp(30px, 8vw, 44px) * 1.2);
   }
   .hero-text p { margin: 0 auto 20px auto; }
   .section { padding: 55px 16px 65px; }
@@ -658,10 +657,11 @@ nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-w
   .hero-text h1 {
     font-size: clamp(26px, 9vw, 36px);
     margin: 0 0 16px 0;
-    min-height: calc(clamp(26px, 9vw, 36px) * 2.3);
+    min-height: calc(clamp(26px, 9vw, 36px) * 2.8);
   }
   .animated-text {
-    height: calc(clamp(26px, 9vw, 36px) * 1.1);
+    min-height: calc(clamp(26px, 9vw, 36px) * 1.4);
+    padding: 0 4px;
   }
   .hero-text p { font-size: 15px; margin: 0 auto 20px auto; }
   .cta-row .btn { width: 100%; justify-content: center; padding: 11px 14px; }
